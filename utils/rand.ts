@@ -1,4 +1,8 @@
-import { MAX_PRICE, MAX_RATING_COUNT, MIN_RATING_COUNT } from "@config";
+import {
+  MAX_PRICE,
+  MAX_RATING_COUNT,
+  MIN_RATING_COUNT,
+} from "config/constants";
 import { MightOrMightNotExist } from "types/alias";
 import { RatingInterface } from "types/data";
 

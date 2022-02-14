@@ -4,8 +4,7 @@
     "paths": {
       "@ui/*": ["components/ui/*"],
       "@non-ui/*": ["components/non-ui/*"],
-      "@api/*": ["components/mock/api/*"],
-      "@config": ["config.ts"]
+      "@api/*": ["components/mock/api/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

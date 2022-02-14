@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { MAX_PRICE } from "@config";
+import { MAX_PRICE } from "config/constants";
 import ActionNames from "./actions/names";
 import {
   AppStateInterface,
