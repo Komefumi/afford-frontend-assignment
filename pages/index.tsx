@@ -1,9 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 // import Image from "next/image";
-import Container from "@mui/material/Container";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
+import { Container, Paper, Box } from "@local-mui";
 
 // import Container from "@mui/material/Container";
 import classes from "styles/Home.module.css";

@@ -1,6 +1,6 @@
 import { Provider as ReduxProvider } from "react-redux";
-import { ThemeProvider as MuiThemeProvider } from "@mui/material";
 import type { AppProps } from "next/app";
+import { ThemeProvider as MuiThemeProvider } from "@local-mui";
 import theme from "config/theme";
 import { store } from "state/store";
 import { WrapperProps } from "types/prop-types";

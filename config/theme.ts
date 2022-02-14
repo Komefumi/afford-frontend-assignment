@@ -1,5 +1,4 @@
-// @ts-ignore
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from "@local-mui";
 
 const theme = createTheme({
   palette: {

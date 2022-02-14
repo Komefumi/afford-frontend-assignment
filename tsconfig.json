@@ -4,7 +4,7 @@
     "paths": {
       "@ui/*": ["components/ui/*"],
       "@non-ui/*": ["components/non-ui/*"],
-      "@api/*": ["components/mock/api/*"]
+      "@local-mui": ["mui.tsx"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
