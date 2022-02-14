@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@ui/*": ["components/ui/*"],
+      "@non-ui/*": ["components/non-ui/*"],
+      "@api/*": ["components/mock/api/*"],
+      "@config": ["config.ts"]
+    },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
