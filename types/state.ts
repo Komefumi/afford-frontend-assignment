@@ -3,7 +3,6 @@ import {
   ProductInterface,
   FeaturedTraitEnum,
   SortCriterionEnum,
-  SortCriterionEnum,
 } from "./data";
 
 export enum StateFiltersListsEnum {
