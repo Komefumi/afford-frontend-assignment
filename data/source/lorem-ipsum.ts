@@ -1,0 +1,1 @@
+export default `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id sem consectetur, pharetra velit eu, malesuada leo. Cras porttitor magna quis magna porttitor molestie. Mauris vel fringilla mi. Nam molestie dolor a metus congue consectetur. Pellentesque condimentum erat ac mattis porttitor. Donec vitae porttitor libero. Suspendisse potenti. Nullam sed diam.`;
