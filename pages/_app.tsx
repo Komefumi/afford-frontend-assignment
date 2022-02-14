@@ -1,8 +1,20 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { Provider } from "react-redux";
+import type { AppProps } from "next/app";
+import { store } from "state/store";
+import { WrapperProps } from "types/prop-types";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import "../styles/globals.css";
+
+function ProvideSetup({ children }: WrapperProps) {
+  return <Provider store={store}>{children}</Provider>;
 }
 
-export default MyApp
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ProvideSetup>
+      <Component {...pageProps} />
+    </ProvideSetup>
+  );
+}
+
+export default MyApp;
