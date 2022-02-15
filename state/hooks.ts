@@ -1,10 +1,7 @@
 import { useAppSelector } from "state/store";
 import { generateRatingValue } from "utils/calculate";
 import { productPropertyForStateFiltersListsEnum } from "data/state";
-import {
-  StateFiltersListsEnum,
-  PossibleFilterListValues,
-} from "types/state";
+import { StateFiltersListsEnum, PossibleFilterListValues } from "types/state";
 import { SortCriterionEnum, ProductInterface } from "types/data";
 
 function useGetFilteredProducts(): ProductInterface[] {
@@ -53,8 +50,8 @@ function useGetSortedProducts() {
   } else if (sortCriterion === SortCriterionEnum.POPULARITY) {
     sortedProducts.sort((productA, productB) => {
       return (
-        generateRatingValue(productB.rating) -
-        generateRatingValue(productA.rating)
+        generateRatingValue(productA.rating) -
+        generateRatingValue(productB.rating)
       );
     });
   }
