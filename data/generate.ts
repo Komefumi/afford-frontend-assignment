@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import {
   categories,
   categoryEnumToData,
@@ -13,6 +14,7 @@ import {
   generateRandomPrice,
   generateRandomRating,
 } from "utils/rand";
+import { PRODUCT_COUNT } from "config/constants";
 import { ProductInterface } from "types/data";
 
 export function generateProducts(count: number): ProductInterface[] {
@@ -23,8 +25,9 @@ export function generateProducts(count: number): ProductInterface[] {
     const categoryData = categoryEnumToData[category];
 
     productItems.push({
+      id: nanoid(),
       title: selectRandomElementFromArray(categoryData.nameList),
-      description: placeholderTextContent,
+      description: "Placeholder product description for product",
       imageSrc: placeholderImage as unknown as string,
       category,
       brand: selectRandomElementFromArray(brands),
@@ -37,3 +40,5 @@ export function generateProducts(count: number): ProductInterface[] {
 
   return productItems;
 }
+
+export const generatedProducts = generateProducts(PRODUCT_COUNT);

@@ -29,6 +29,7 @@ export interface RatingInterface {
 }
 
 export interface ProductInterface {
+  id: string;
   title: string;
   description: string;
   imageSrc: string;
