@@ -1,25 +1,43 @@
+import { useEffect } from "react";
 import { Provider as ReduxProvider } from "react-redux";
 import type { AppProps } from "next/app";
-import { ThemeProvider as MuiThemeProvider } from "@local-mui";
+import { ThemeProvider as MuiThemeProvider, CssBaseline } from "@local-mui";
+import { store, useAppDispatch } from "state/store";
+import { createSetProducts } from "state/actions/creators";
+import { generatedProducts } from "data/generate";
 import theme from "config/theme";
-import { store } from "state/store";
 import { WrapperProps } from "types/prop-types";
 
 import "../styles/globals.css";
 
-function ProvideSetup({ children }: WrapperProps) {
+function ProvideInitialSetup({ children }: WrapperProps) {
   return (
     <ReduxProvider store={store}>
-      <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        <ProvideInitialization>{children}</ProvideInitialization>
+      </MuiThemeProvider>
     </ReduxProvider>
   );
 }
 
+function ProvideInitialization({ children }: WrapperProps) {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(createSetProducts(generatedProducts));
+  });
+
+  return <>{children}</>;
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ProvideSetup>
-      <Component {...pageProps} />
-    </ProvideSetup>
+    <>
+      <ProvideInitialSetup>
+        <Component {...pageProps} />
+      </ProvideInitialSetup>
+    </>
   );
 }
 
