@@ -1,9 +1,11 @@
+import { TypographyVariant } from "@mui/material";
 import { createRandomPrependsAddedList } from "utils/rand";
 import { capitalizeString } from "utils/transform";
 import {
   CategoryEnum,
   RecordTypeCategoryEnumToData,
   BrandEnum,
+  RatingEnum,
   FeaturedTraitEnum,
   SortCriterionEnum,
   RecordTypeSortCriterionEnumToData,
@@ -60,6 +62,14 @@ const brands = [
   BrandEnum.TRUE_FARMER_STEVE,
 ];
 
+const mainRatings = [
+  RatingEnum.ONE,
+  RatingEnum.TWO,
+  RatingEnum.THREE,
+  RatingEnum.FOUR,
+  RatingEnum.FIVE,
+];
+
 const featuredTraits = [FeaturedTraitEnum.FARM, FeaturedTraitEnum.BIO];
 
 const sortCriteria = [SortCriterionEnum.POPULARITY, SortCriterionEnum.PRICE];
@@ -73,6 +83,7 @@ const sortCriterionEnumToData: RecordTypeSortCriterionEnumToData = {
   },
 };
 
+
 export {
   countries,
   kitchenware,
@@ -82,6 +93,7 @@ export {
   categories,
   categoryEnumToData,
   brands,
+  mainRatings,
   featuredTraits,
   placeholderTextContent,
   placeholderImage,

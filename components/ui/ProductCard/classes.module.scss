@@ -1,0 +1,21 @@
+.card {
+  padding: 10px;
+}
+.describing_info {
+  & > * {
+    margin: 0;
+  }
+  .description {
+    margin: 5px 0 7.5px;
+  }
+  margin-bottom: 10px;
+}
+
+.buying_info {
+  display: flex;
+  width: 100%;
+}
+
+.buy_now_button {
+  margin-left: auto;
+}

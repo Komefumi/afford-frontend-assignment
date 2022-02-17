@@ -1,6 +1,7 @@
 import { Action } from "@reduxjs/toolkit";
 import {
   ProductInterface,
+  RatingEnum,
   FeaturedTraitEnum,
   SortCriterionEnum,
 } from "./data";
@@ -10,6 +11,7 @@ export enum StateFiltersListsEnum {
   BRANDS = "brands",
   FROM_COUNTRIES = "fromCountries",
   FEATURED_TRAITS = "featuredTraits",
+  MAIN_RATINGS = "mainRatings",
 }
 
 export enum StateFiltersRangesEnum {
@@ -21,8 +23,10 @@ export interface PriceRangeInterface {
   max: number;
 }
 
-export type PossibleFilterListValues = (string | number | FeaturedTraitEnum)[];
-export type PossibleRangeFilterValues = PriceRangeInterface;
+export type IndividualPossibleFilterListValue = unknown;
+
+export type PossibleFilterListValues = IndividualPossibleFilterListValue[];
+export type PossibleRangeFilterValues = unknown;
 
 export type RecordTypeStateFiltersListsEnumToItemList = Record<
   StateFiltersListsEnum,

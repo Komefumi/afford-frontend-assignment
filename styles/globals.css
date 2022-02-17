@@ -1,5 +1,9 @@
 @import "@fontsource/roboto";
 
+:root {
+  --primaryColor: #6a983c;
+}
+
 html,
 body {
   padding: 0;

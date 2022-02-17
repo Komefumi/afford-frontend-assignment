@@ -1,34 +1,49 @@
 import { useAppSelector } from "state/store";
 import { generateRatingValue } from "utils/calculate";
-import { productPropertyForStateFiltersListsEnum } from "data/state";
-import { StateFiltersListsEnum, PossibleFilterListValues } from "types/state";
-import { SortCriterionEnum, ProductInterface } from "types/data";
+import {} from "utils/transform";
+import {
+  mappingToProductPropertyForDirectListFilterMatch,
+  directMatchListFilters,
+} from "data/state";
+import {
+  StateFiltersListsEnum,
+  PossibleFilterListValues,
+} from "types/state";
+import {
+  CategoryEnum,
+  SortCriterionEnum,
+  ProductInterface,
+  RecordTypeCategoryEnumToProductCount,
+} from "types/data";
 
 function useGetFilteredProducts(): ProductInterface[] {
   const { products, filters } = useAppSelector((state) => state);
   const { lists, ranges } = filters;
 
   let returnableProducts = products.slice();
-  Object.values(StateFiltersListsEnum).forEach((filterName) => {
-    const currentFilterList = lists[filterName] as PossibleFilterListValues;
-    if (currentFilterList.length > 0) {
-      returnableProducts = returnableProducts.filter((currentProduct) => {
-        const propertyInProduct =
-          currentProduct[
-            productPropertyForStateFiltersListsEnum[
-              filterName
-            ] as keyof ProductInterface
-          ];
-        if (propertyInProduct instanceof Array) {
-          return propertyInProduct.some((unitInValueList) =>
-            currentFilterList.includes(unitInValueList)
-          );
-        } else if (typeof propertyInProduct !== "object") {
-          return currentFilterList.includes(propertyInProduct);
-        }
-      });
-    }
-  });
+  Object.values(StateFiltersListsEnum)
+    .filter((filterName) => directMatchListFilters.includes(filterName))
+    .forEach((filterName) => {
+      const currentFilterList = lists[filterName] as PossibleFilterListValues;
+      if (currentFilterList.length > 0) {
+        returnableProducts = returnableProducts.filter((currentProduct) => {
+          const propertyInProduct =
+            currentProduct[
+              // @ts-ignore
+              mappingToProductPropertyForDirectListFilterMatch[
+                filterName
+              ] as keyof ProductInterface
+            ];
+          if (propertyInProduct instanceof Array) {
+            return propertyInProduct.some((unitInValueList) =>
+              currentFilterList.includes(unitInValueList)
+            );
+          } else if (typeof propertyInProduct !== "object") {
+            return currentFilterList.includes(propertyInProduct);
+          }
+        });
+      }
+    });
 
   returnableProducts = returnableProducts.filter(({ price }) => {
     const { min, max } = ranges.price;
@@ -59,4 +74,25 @@ function useGetSortedProducts() {
   return sortedProducts;
 }
 
-export { useGetSortedProducts };
+function useGetCategoryToProductCount(): RecordTypeCategoryEnumToProductCount {
+  // const { products } = useAppSelector((state) => state);
+  const products = useGetFilteredProducts();
+  const returnableData: RecordTypeCategoryEnumToProductCount = Object.values(
+    CategoryEnum
+  ).reduce((builtMapping, enumValue) => {
+    builtMapping[enumValue] = 0;
+    return builtMapping;
+  }, {} as RecordTypeCategoryEnumToProductCount);
+  products.forEach((productItem) => {
+    const { category } = productItem;
+    returnableData[category] += 1;
+  });
+
+  return returnableData;
+}
+
+
+export {
+  useGetSortedProducts,
+  useGetCategoryToProductCount,
+};

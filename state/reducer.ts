@@ -22,6 +22,7 @@ const initialState: AppStateInterface = {
       [StateFiltersListsEnum.BRANDS]: [],
       [StateFiltersListsEnum.FEATURED_TRAITS]: [],
       [StateFiltersListsEnum.FROM_COUNTRIES]: [],
+      [StateFiltersListsEnum.MAIN_RATINGS]: [],
     },
     ranges: {
       [StateFiltersRangesEnum.PRICE]: {

@@ -23,6 +23,14 @@ export enum FeaturedTraitEnum {
   BIO = "Bio",
 }
 
+export enum RatingEnum {
+  ONE = 1,
+  TWO = 2,
+  THREE = 3,
+  FOUR = 4,
+  FIVE = 5,
+}
+
 export interface RatingInterface {
   average: number;
   count: number;
@@ -49,6 +57,8 @@ export type RecordTypeCategoryEnumToData = Record<
   CategoryEnum,
   CategoryEnumDataInterface
 >;
+
+export type RecordTypeCategoryEnumToProductCount = Record<CategoryEnum, number>;
 
 export interface SortCriterionEnumDataInterface {
   selectionLabel: string;

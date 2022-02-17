@@ -3,12 +3,21 @@ import {
   RecordTypeStateFiltersListsEnumToProductProperty,
 } from "types/state";
 
-const productPropertyForStateFiltersListsEnum: RecordTypeStateFiltersListsEnumToProductProperty =
-  {
-    [StateFiltersListsEnum.CATEGORIES]: "category",
-    [StateFiltersListsEnum.BRANDS]: "brand",
-    [StateFiltersListsEnum.FROM_COUNTRIES]: "fromCountry",
-    [StateFiltersListsEnum.FEATURED_TRAITS]: "featuredTraits",
-  };
+const mappingToProductPropertyForDirectListFilterMatch: Omit<
+  RecordTypeStateFiltersListsEnumToProductProperty,
+  StateFiltersListsEnum.MAIN_RATINGS
+> = {
+  [StateFiltersListsEnum.CATEGORIES]: "category",
+  [StateFiltersListsEnum.BRANDS]: "brand",
+  [StateFiltersListsEnum.FROM_COUNTRIES]: "fromCountry",
+  [StateFiltersListsEnum.FEATURED_TRAITS]: "featuredTraits",
+};
 
-export { productPropertyForStateFiltersListsEnum };
+const directMatchListFilters = Object.keys(
+  mappingToProductPropertyForDirectListFilterMatch
+);
+
+export {
+  mappingToProductPropertyForDirectListFilterMatch,
+  directMatchListFilters,
+};

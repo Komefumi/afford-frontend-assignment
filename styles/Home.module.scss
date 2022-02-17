@@ -1,0 +1,169 @@
+.page_wrapper {
+  height: 100%;
+}
+
+.background {
+  padding: 100px 0;
+  background-color: #e5e5e5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.app_panel {
+  border: 1px solid #ddd;
+  padding: 40px 45px;
+  border-radius: 32px;
+}
+
+// Header section
+
+.app_panel_header {
+  .item_listing_controls {
+    display: flex;
+  }
+  .applied_filters_listing {
+    display: flex;
+  }
+  margin-bottom: 75px;
+}
+
+.app_panel_header .top_row {
+  display: flex;
+  .control_and_stats {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+  }
+}
+
+.app_panel_header .stat_item {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.app_panel_header .stat_item .value {
+  margin-right: 1.5rem;
+  span {
+    background-color: #eee;
+    color: var(--primaryColor);
+    font-weight: bold;
+  }
+}
+
+.app_panel_header .stat_item .label {
+  color: #999;
+}
+// For Major Controls Section
+.main_filter_controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.item_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    padding: 5px 0px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.filter_control_major_title {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.category_listing {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.category_name {
+  flex: 0 0 80%;
+}
+
+.category_badge {
+  flex: 0 0 auto;
+  span {
+    background-color: #eee;
+    color: var(--primaryColor);
+    font-weight: bold;
+  }
+}
+
+.brand_listing {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: -3px;
+
+  li {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.brand_item_checkbox {
+  padding-left: 0;
+
+  input:not(:checked) {
+    border: 1px solid #eee;
+  }
+}
+
+.price_control_body {
+  padding: 1rem;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.price_range_slider {
+  max-width: 95%;
+  color: black;
+}
+
+.direct_price_input_row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.direct_price_input_label {
+  font-weight: 500;
+}
+
+.direct_price_input_unit {
+  display: flex;
+  flex-direction: column;
+}
+
+.direct_price_input {
+  border-radius: 10px;
+  max-width: auto;
+  width: 80px;
+  border: 2px solid #aaa;
+  padding: 10px 5px;
+}
+
+.price_control_trigger_row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}

@@ -1,4 +1,5 @@
 // @ts-ignore
+/*
 import createTheme from "@mui/material/styles/createTheme";
 import ThemeProvider from "@mui/material/styles/ThemeProvider";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,9 +13,13 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import TextField from "@mui/material/TextField";
+import Badge from "@mui/material/Badge";
 import Rating from "@mui/material/Rating";
+import Slider from "@mui/material/Slider";
 import Typography from "@mui/material/Typography";
-/*
+*/
+
 import {
   CssBaseline,
   Grid,
@@ -31,9 +36,10 @@ import {
   Typography,
   createTheme,
   ThemeProvider,
-  ThemeOptions,
+  TextField,
+  Badge,
+  Slider,
 } from "@mui/material";
- */
 
 export {
   createTheme,
@@ -49,6 +55,9 @@ export {
   Button,
   FormControlLabel,
   Checkbox,
+  TextField,
+  Badge,
   Rating,
+  Slider,
   Typography,
 };
